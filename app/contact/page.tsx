@@ -2,6 +2,7 @@ import { NextPage } from 'next';
 
 import { BsWhatsapp } from 'react-icons/bs';
 import { AiOutlinePhone } from 'react-icons/ai';
+import Preloader from '@/components/Preloader';
 
 export const metadata = {
   title: 'Contact Us',
@@ -10,6 +11,7 @@ export const metadata = {
 const Contact: NextPage = ({}: {}) => {
   return (
     <div className="contact">
+      <Preloader />
       <div className="container">
         <section className="map-section">
           <iframe
