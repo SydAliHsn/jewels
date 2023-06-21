@@ -14,7 +14,7 @@ const Hero = ({}: {}): JSX.Element => {
 
         <p className="hero-text">
           Discover Affordable Sophistication. Shop our carefully crafted, stylish jewelry collection for an elegant
-          touch that won't break the bank.
+          touch that won&apos;t break the bank.
         </p>
 
         <button className="btn btn-primary">

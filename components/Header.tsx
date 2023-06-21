@@ -117,6 +117,7 @@ const Header = ({}: {}): JSX.Element => {
             {navbarLinks.map(({ path, page }) => {
               return (
                 <NavbarItem
+                  key={path}
                   path={path}
                   page={page}
                   active={pathname === path}

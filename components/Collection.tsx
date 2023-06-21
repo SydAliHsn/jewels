@@ -40,11 +40,11 @@ const Collection = ({}: {}): JSX.Element => {
     <section className="section collection">
       <div className="container">
         <ul className="collection-list has-scrollbar">
-          {collectionCards.map(card => (
-            <li>
+          {collectionCards.map(({ img, title }) => (
+            <li key={title}>
               <CollectionCard
-                img={card.img}
-                title={card.title}
+                img={img}
+                title={title}
               />
             </li>
           ))}
