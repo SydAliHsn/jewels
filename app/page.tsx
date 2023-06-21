@@ -1,95 +1,138 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+import Image from 'next/image';
+
+import Hero from '@/components/Hero';
+import Collection from '@/components/Collection';
+import Services from '@/components/Services';
+import Cta from '@/components/Cta';
+import Instagram from '@/components/Instagram';
+import ProductCard from '@/components/ProductCard';
+import { AiOutlineArrowRight } from 'react-icons/ai';
 
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
+    <div>
+      <main>
+        <article>
+          <Hero />
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+          <Collection />
 
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
+          {/* <!-- 
+        - #PRODUCT
+      --> */}
+          <section className="section product">
+            <div className="container">
+              <h2 className="h2 section-title">Our Bestsellers</h2>
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
+              {/* <ul className="filter-list">
+                <li>
+                  <button className="filter-btn  active">All</button>
+                </li>
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore the Next.js 13 playground.</p>
-        </a>
+                <li>
+                  <button className="filter-btn">Nike</button>
+                </li>
 
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
+                <li>
+                  <button className="filter-btn">Adidas</button>
+                </li>
+
+                <li>
+                  <button className="filter-btn">Puma</button>
+                </li>
+
+                <li>
+                  <button className="filter-btn">Bata</button>
+                </li>
+
+                <li>
+                  <button className="filter-btn">Apex</button>
+                </li>
+              </ul> */}
+
+              <ul className="product-list">
+                <li className="product-item">
+                  <ProductCard />
+                </li>
+                <li className="product-item">
+                  <ProductCard />
+                </li>
+                <li className="product-item">
+                  <ProductCard />
+                </li>
+                <li className="product-item">
+                  <ProductCard />
+                </li>
+                <li className="product-item">
+                  <ProductCard />
+                </li>
+                <li className="product-item">
+                  <ProductCard />
+                </li>
+                <li className="product-item">
+                  <ProductCard />
+                </li>
+              </ul>
+            </div>
+          </section>
+
+          <Cta />
+
+          {/* <!-- 
+        - #SPECIAL
+      --> */}
+
+          <section className="section special">
+            <div className="container">
+              <div
+                className="special-banner"
+                style={{ backgroundImage: "url('/images/special-banner.jpg')" }}
+              >
+                <h2 className="h3 banner-title">New Trend Edition</h2>
+
+                <a
+                  href="#"
+                  className="btn btn-link"
+                >
+                  <span>Explore All</span>
+
+                  <AiOutlineArrowRight className="icon" />
+                </a>
+              </div>
+
+              <div className="special-product">
+                <h2 className="h2 section-title">
+                  <span className="text">Jewels Special</span>
+
+                  <span className="line"></span>
+                </h2>
+
+                <ul className="has-scrollbar">
+                  <li className="product-item">
+                    <ProductCard />
+                  </li>
+                  <li className="product-item">
+                    <ProductCard />
+                  </li>
+                  <li className="product-item">
+                    <ProductCard />
+                  </li>
+                  <li className="product-item">
+                    <ProductCard />
+                  </li>
+                  <li className="product-item">
+                    <ProductCard />
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <Services />
+
+          <Instagram />
+        </article>
+      </main>
+    </div>
+  );
 }
