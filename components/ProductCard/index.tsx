@@ -6,6 +6,8 @@ import { AiOutlinePhone } from 'react-icons/ai';
 import ProductCardPhone from './ProductCardPhone';
 
 const ProductCard = (props: {}): JSX.Element => {
+  const randomNumber = Math.floor(Math.random() * 8) + 1;
+
   return (
     <div
       className="product-card"
@@ -13,7 +15,7 @@ const ProductCard = (props: {}): JSX.Element => {
     >
       <figure className="card-banner">
         <img
-          src="/images/product-1.jpg"
+          src={`/images/product-${randomNumber}.jpg`}
           width="312"
           height="350"
           loading="lazy"
@@ -80,9 +82,9 @@ const ProductCard = (props: {}): JSX.Element => {
 
         <data
           className="card-price"
-          value="180.85"
+          value="545"
         >
-          $180.85
+          545 PKR
         </data>
       </div>
     </div>

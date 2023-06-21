@@ -120,7 +120,7 @@ const Header = ({}: {}): JSX.Element => {
                   key={path}
                   path={path}
                   page={page}
-                  active={pathname === path}
+                  active={pathname === path || (path !== '/' && pathname.startsWith(path))}
                 />
               );
             })}

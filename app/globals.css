@@ -8,7 +8,7 @@
   --primary-light: #ffe3ee;
   --primary: #ff4286;
   --smoky-black: rgb(7, 6, 1);
-  --gainsboro: hsl(0, 0%, 88%);
+  --gr: hsl(0, 0%, 88%);
   --black_90: hsla(0, 0%, 0%, 0.9);
   --cultured: hsl(200, 12%, 95%);
   --primary-dark: #ff196d;
@@ -481,7 +481,7 @@ body {
 
 .navbar-list {
   padding: 20px;
-  border-bottom: 1px solid var(--gainsboro);
+  border-bottom: 1px solid var(--gr);
 }
 
 .navbar-link {
@@ -515,7 +515,7 @@ body {
 }
 
 .navbar-item:not(:last-child) {
-  border-bottom: 1px solid var(--gainsboro);
+  border-bottom: 1px solid var(--gr);
 }
 
 .nav-action-list > li:first-child {
@@ -696,8 +696,16 @@ body {
   font-family: var(--ff-roboto);
   font-size: var(--fs-7);
   font-weight: var(--fw-500);
-  border: 1px solid var(--gainsboro);
+  border: 1px solid var(--black_90);
   border-radius: 30px;
+  transition: all 0.3s;
+}
+
+.filter-btn:not(.active):hover {
+  transform: translateY(-2px);
+  box-shadow: 0px 6px 16px -6px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0px 6px 16px -6px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0px 6px 16px -6px rgba(0, 0, 0, 0.3);
 }
 
 .filter-btn.active {
@@ -1600,3 +1608,41 @@ a.footer-link:is(:hover, :focus) {
   }
 }
 /* End of Toastify Notifications */
+
+/* Shop */
+.shop .container h1 {
+  position: relative;
+  color: #111;
+  font-size: var(--fs-2);
+  /* color: white; */
+  /* font-weight: 400; */
+}
+
+.shop {
+  /* background-image: url(/images/background.svg); */
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  min-height: 100vh;
+}
+.shop .container {
+  padding-top: 3rem;
+  padding-bottom: 7rem;
+  margin-top: -1.4rem;
+}
+@media (min-width: 768px) {
+  .shop .container {
+    margin-top: -0.5rem;
+  }
+}
+
+.shop .filter-list {
+  padding: 3rem 0;
+}
+/* 
+.shop .filter-btn:not(.active) {
+  border: 1px solid var(--white) !important;
+  color: #f4ffb3d7;
+} */
+
+/* End of Shop */

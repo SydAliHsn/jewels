@@ -77,7 +77,7 @@ const Footer = ({}: {}): JSX.Element => {
                 <address className="footer-link">
                   <IoLocation className="icon" />
 
-                  <span className="footer-link-text">2751 S Parker Rd, Aurora, CO 80014, United States</span>
+                  <span className="footer-link-text">Main Market, Gulber III, Lahore, Pakistan</span>
                 </address>
               </li>
 
@@ -99,7 +99,7 @@ const Footer = ({}: {}): JSX.Element => {
                 >
                   <AiFillMail className="icon" />
 
-                  <span className="footer-link-text">footcap@help.com</span>
+                  <span className="footer-link-text">contact@sadeemsjewels.com</span>
                 </a>
               </li>
             </ul>
