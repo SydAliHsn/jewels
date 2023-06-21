@@ -7,10 +7,12 @@ import Cta from '@/components/Cta';
 import Instagram from '@/components/Instagram';
 import ProductCard from '@/components/ProductCard';
 import { AiOutlineArrowRight } from 'react-icons/ai';
+import Preloader from '@/components/Preloader';
 
 export default function Home() {
   return (
     <div>
+      <Preloader />
       <main>
         <article>
           <Hero />

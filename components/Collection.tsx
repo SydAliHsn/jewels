@@ -1,5 +1,5 @@
 import React from 'react';
-
+import Link from 'next/link';
 import { AiOutlineArrowRight } from 'react-icons/ai';
 
 const CollectionCard = ({ title, img }: { title: string; img: string }): JSX.Element => {
@@ -16,15 +16,15 @@ const CollectionCard = ({ title, img }: { title: string; img: string }): JSX.Ele
         {title}
       </h3>
 
-      <a
-        href="#"
+      <Link
+        href="/shop/"
         className="btn btn-secondary"
         style={{ zIndex: 2 }}
       >
         <span>Explore All</span>
 
         <AiOutlineArrowRight className="icon" />
-      </a>
+      </Link>
     </div>
   );
 };

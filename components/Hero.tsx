@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import { FaArrowRight } from 'react-icons/fa';
 
 const Hero = ({}: {}): JSX.Element => {
@@ -17,9 +18,14 @@ const Hero = ({}: {}): JSX.Element => {
           touch that won&apos;t break the bank.
         </p>
 
-        <button className="btn btn-primary">
-          <span>Shop Now</span>
-          <FaArrowRight className="icon" />
+        <button>
+          <Link
+            href="/shop"
+            className="btn btn-primary"
+          >
+            <span>Shop Now</span>
+            <FaArrowRight className="icon" />
+          </Link>
         </button>
       </div>
     </section>

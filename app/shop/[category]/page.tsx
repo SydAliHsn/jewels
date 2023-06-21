@@ -2,6 +2,7 @@ import { NextPage } from 'next';
 import Link from 'next/link';
 import NotFound from '@/components/NotFound';
 
+import Preloader from '@/components/Preloader';
 import ProductList from '@/components/ProductList';
 
 type Props = { params: { category: string } };
@@ -33,6 +34,8 @@ const ShopCategory: NextPage<Props> = ({ params }) => {
       className="shop"
       //   style={{ backgroundImage: `url(/images/background-${bgColor}.svg)` }}
     >
+      <Preloader />
+
       <div className="container">
         <h1>Latest Jewellery for {category[0].toUpperCase() + category.slice(1)}</h1>
 

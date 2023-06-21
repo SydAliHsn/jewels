@@ -2,10 +2,13 @@ import { NextPage } from 'next';
 import Link from 'next/link';
 
 import ProductList from '@/components/ProductList';
+import Preloader from '@/components/Preloader';
 
 const Shop: NextPage = (props: {}) => {
   return (
     <main className="shop">
+      <Preloader />
+
       <div className="container">
         <h1>Your Own Jewellery Store</h1>
 

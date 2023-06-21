@@ -1,6 +1,7 @@
 import { NextPage } from 'next';
 import Link from 'next/link';
 import NotFound from '@/components/NotFound';
+import Preloader from '@/components/Preloader';
 
 function isNumeric(str: string) {
   if (typeof str != 'string') return false; // we only process strings!
@@ -16,6 +17,8 @@ const ShopPage: NextPage<Props> = ({ params }) => {
 
   return (
     <div className="container">
+      <Preloader />
+
       <div className="h1">Your Own Jewellery Shop</div>
       {params.pageNumber}
     </div>
