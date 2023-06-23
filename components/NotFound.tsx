@@ -4,9 +4,13 @@ import Image from 'next/image';
 import { AiTwotoneShop } from 'react-icons/ai';
 import { BiHome } from 'react-icons/bi';
 
+import Preloader from './Preloader';
+
 const NotFound = (props: {}): JSX.Element => {
   return (
     <main className="not-found">
+      <Preloader />
+
       <div
         className="container"
         style={{
