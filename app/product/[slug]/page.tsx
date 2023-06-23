@@ -2,6 +2,7 @@ import { getProducts } from '@/lib/helpers';
 import { NextPage } from 'next';
 
 export const dynamicParams = false;
+export const revalidate = 10;
 
 type Props = { params: { slug: string } };
 

@@ -6,6 +6,7 @@ import Preloader from '@/components/Preloader';
 import ProductList from '@/components/ProductList';
 
 export const dynamicParams = false;
+export const revalidate = 10;
 
 const categories = ['women', 'men', 'kids'];
 
