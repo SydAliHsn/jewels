@@ -6,7 +6,7 @@ import FilterList from '@/components/FilterList';
 import Preloader from '@/components/Preloader';
 import { getProducts, getCategories } from '@/lib/helpers';
 
-//export const revalidate = 10;
+export const revalidate = 360;
 
 const Shop: NextPage = async (props: {}) => {
   const products = await getProducts();

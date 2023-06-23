@@ -1653,6 +1653,20 @@ a.footer-link:is(:hover, :focus) {
 /* End of Shop */
 
 /* Loader */
+.preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99;
+  transition: all 0.3s;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background: #fff;
+}
+
 .lds-heart {
   display: inline-block;
   position: relative;

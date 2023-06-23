@@ -17,20 +17,10 @@ const Preloader = ({}: {}): JSX.Element => {
 
   return (
     <div
+      className="preloader"
       style={{
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        zIndex: 99,
         display: visible ? 'flex' : 'none',
-        transition: 'visibility 0.3s',
         visibility: visible ? 'visible' : 'hidden',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-        height: '100vh',
-        width: '100vw',
-        background: '#fff',
       }}
     >
       <div className="lds-heart">
