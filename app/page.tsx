@@ -3,13 +3,18 @@ import Image from 'next/image';
 import Hero from '@/components/Hero';
 import Collection from '@/components/Collection';
 import Services from '@/components/Services';
+import ProductList from '@/components/ProductList';
 import Cta from '@/components/Cta';
 import Instagram from '@/components/Instagram';
 import ProductCard from '@/components/ProductCard';
 import { AiOutlineArrowRight } from 'react-icons/ai';
 import Preloader from '@/components/Preloader';
+import { getProducts } from '@/lib/helpers';
 
-export default function Home() {
+export default async function Home() {
+  const bestsellerProducts = await getProducts({ bestseller: true });
+  const featuredProducts = await getProducts({ featured: true });
+
   return (
     <div>
       <Preloader />
@@ -52,29 +57,7 @@ export default function Home() {
                 </li>
               </ul> */}
 
-              <ul className="product-list">
-                <li className="product-item">
-                  <ProductCard />
-                </li>
-                <li className="product-item">
-                  <ProductCard />
-                </li>
-                <li className="product-item">
-                  <ProductCard />
-                </li>
-                <li className="product-item">
-                  <ProductCard />
-                </li>
-                <li className="product-item">
-                  <ProductCard />
-                </li>
-                <li className="product-item">
-                  <ProductCard />
-                </li>
-                <li className="product-item">
-                  <ProductCard />
-                </li>
-              </ul>
+              <ProductList products={bestsellerProducts} />
             </div>
           </section>
 
@@ -110,21 +93,14 @@ export default function Home() {
                 </h2>
 
                 <ul className="has-scrollbar">
-                  <li className="product-item">
-                    <ProductCard />
-                  </li>
-                  <li className="product-item">
-                    <ProductCard />
-                  </li>
-                  <li className="product-item">
-                    <ProductCard />
-                  </li>
-                  <li className="product-item">
-                    <ProductCard />
-                  </li>
-                  <li className="product-item">
-                    <ProductCard />
-                  </li>
+                  {featuredProducts.map(prod => (
+                    <li
+                      className="product-item"
+                      key={prod.slug}
+                    >
+                      <ProductCard product={prod} />
+                    </li>
+                  ))}
                 </ul>
               </div>
             </div>

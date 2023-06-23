@@ -6,6 +6,7 @@ const Preloader = ({}: {}): JSX.Element => {
   const [visible, setVisible] = useState(true);
 
   useEffect(() => {
+    document.querySelector('html')?.classList.add('overflow-hidden');
     setTimeout(() => {
       document.querySelector('html')?.classList.remove('overflow-hidden');
       setVisible(false);
@@ -20,6 +21,8 @@ const Preloader = ({}: {}): JSX.Element => {
         left: 0,
         zIndex: 99,
         display: visible ? 'flex' : 'none',
+        transition: 'visibility 0.3s',
+        visibility: visible ? 'visible' : 'hidden',
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',

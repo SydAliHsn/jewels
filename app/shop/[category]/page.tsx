@@ -1,33 +1,41 @@
 import { NextPage } from 'next';
-import Link from 'next/link';
-import NotFound from '@/components/NotFound';
 
+import { getProducts, getCategories } from '@/lib/helpers';
+import FilterList from '@/components/FilterList';
 import Preloader from '@/components/Preloader';
 import ProductList from '@/components/ProductList';
 
-type Props = { params: { category: string } };
+export const dynamicParams = false;
 
 const categories = ['women', 'men', 'kids'];
 
-const ShopCategory: NextPage<Props> = ({ params }) => {
+export function generateStaticParams() {
+  return categories.map(category => ({
+    category,
+  }));
+}
+
+type Props = { params: { category: string } };
+
+const ShopCategory: NextPage<Props> = async ({ params }) => {
   const { category } = params;
 
-  if (!categories.includes(category)) return <NotFound />;
+  const products = await getProducts({ category });
 
-  let bgColor;
-  switch (category) {
-    case 'women':
-      bgColor = 'red';
-      break;
+  // let bgColor;
+  // switch (category) {
+  //   case 'women':
+  //     bgColor = 'red';
+  //     break;
 
-    case 'men':
-      bgColor = 'blue';
-      break;
+  //   case 'men':
+  //     bgColor = 'blue';
+  //     break;
 
-    case 'kids':
-      bgColor = 'multi';
-      break;
-  }
+  //   case 'kids':
+  //     bgColor = 'multi';
+  //     break;
+  // }
 
   return (
     <main
@@ -39,32 +47,9 @@ const ShopCategory: NextPage<Props> = ({ params }) => {
       <div className="container">
         <h1>Latest Jewellery for {category[0].toUpperCase() + category.slice(1)}</h1>
 
-        <ul
-          className="filter-list"
-          style={{ marginTop: '1rem' }}
-        >
-          <li>
-            <Link
-              href={'/shop'}
-              className="filter-btn"
-            >
-              All
-            </Link>
-          </li>
+        <FilterList filterOptions={getCategories(category)} />
 
-          {categories.map(categ => (
-            <li key={categ}>
-              <Link
-                href={`/shop/${categ}`}
-                className={`filter-btn ${categ === category ? 'active' : ''}`}
-              >
-                {categ[0].toUpperCase() + categ.slice(1)}
-              </Link>
-            </li>
-          ))}
-        </ul>
-
-        <ProductList category="all" />
+        <ProductList products={products} />
       </div>
     </main>
   );

@@ -1,12 +1,61 @@
 import React from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { BsWhatsapp } from 'react-icons/bs';
 import { AiOutlinePhone } from 'react-icons/ai';
 
+import { Product } from '@/lib/types';
 import ProductCardPhone from './ProductCardPhone';
 
-const ProductCard = (props: {}): JSX.Element => {
-  const randomNumber = Math.floor(Math.random() * 8) + 1;
+const ProductCard = ({ product }: { product: Product }): JSX.Element => {
+  const { name, slug, createdAt, category, bestseller, featured, price, salePrice, images } = product;
+
+  const renderCardCat = () => {
+    if (category === 'unisex')
+      return (
+        <div className="card-cat">
+          <Link
+            href="/shop/men"
+            className="card-cat-link"
+          >
+            Men
+          </Link>{' '}
+          /{' '}
+          <Link
+            href="/shop/women"
+            className="card-cat-link"
+          >
+            Women
+          </Link>
+        </div>
+      );
+
+    return (
+      <div className="card-cat">
+        <Link
+          href={`/shop/${category}`}
+          className="card-cat-link"
+        >
+          {category[0].toUpperCase() + category.slice(1)}
+        </Link>{' '}
+      </div>
+    );
+  };
+
+  const renderCardBadge = () => {
+    const newlyCreated = new Date(createdAt).getTime() < new Date().getTime() + 86400 * 10;
+
+    if (!newlyCreated && !featured && !bestseller && !salePrice) return null;
+
+    let badgeText;
+
+    newlyCreated && (badgeText = 'New');
+    featured && (badgeText = 'Featured');
+    salePrice && (badgeText = `${Math.round(((price - salePrice) / price) * 100)}% Off`);
+    bestseller && (badgeText = 'Bestseller');
+
+    return <div className="card-badge">{badgeText}</div>;
+  };
 
   return (
     <div
@@ -14,21 +63,27 @@ const ProductCard = (props: {}): JSX.Element => {
       tabIndex={0}
     >
       <figure className="card-banner">
-        <img
-          src={`/images/product-${randomNumber}.jpg`}
-          width="312"
-          height="350"
-          loading="lazy"
-          alt="Running Sneaker Shoes"
-          className="image-contain"
-        />
+        <Link href={`/product/${slug}`}>
+          <Image
+            src={images[0].url}
+            fill={true}
+            // width="312"
+            // height="350"
+            loading="lazy"
+            alt={images[0].alt || 'product'}
+            className="image-contain"
+            style={{ objectFit: 'cover' }}
+          />
+        </Link>
 
-        <div className="card-badge">New</div>
+        {renderCardBadge()}
 
         <ul className="card-action-list">
           <li className="card-action-item">
             <Link
-              href="https://wa.me/+9203264603123?text=Hi%2C%20I%20want%20to%20order%20a%20product%20from%20your%20store%21"
+              href={`https://wa.me/+9203264603123?text=${encodeURI(
+                `Hi! I would like to order this product from your store: ${process.env.BASE_URL}/product/${slug}`
+              )}`}
               target="_blank"
               className="card-action-btn"
               aria-labelledby="card-label-1"
@@ -50,6 +105,7 @@ const ProductCard = (props: {}): JSX.Element => {
           <ProductCardPhone
             text="Call to order"
             message="Phone no. copied to clipboard!"
+            phone="+9203334225968"
           >
             <AiOutlinePhone
               className="icon"
@@ -60,32 +116,13 @@ const ProductCard = (props: {}): JSX.Element => {
       </figure>
 
       <div className="card-content">
-        <div className="card-cat">
-          <a
-            href="#"
-            className="card-cat-link"
-          >
-            Men
-          </a>{' '}
-          /
-          <a
-            href="#"
-            className="card-cat-link"
-          >
-            Women
-          </a>
-        </div>
+        {renderCardCat()}
 
         <h3 className="h3 card-title">
-          <a href="#">Running Sneaker Shoes</a>
+          <Link href={`/product/${slug}`}>{name}</Link>
         </h3>
 
-        <data
-          className="card-price"
-          value="545"
-        >
-          545 PKR
-        </data>
+        <data className="card-price">{salePrice ? salePrice : price} Rs.</data>
       </div>
     </div>
   );

@@ -1,18 +1,17 @@
 import React from 'react';
 
 import ProductCard from './ProductCard';
+import { Product } from '@/lib/types';
 
-const ProductList = ({ category }: { category: string }): JSX.Element => {
-  const prods = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
-
+const ProductList = ({ products }: { products: Product[] }): JSX.Element => {
   return (
-    <ul className="product-list">
-      {prods.map(prod => (
+    <ul className={'product-list'}>
+      {products.map(prod => (
         <li
           className="product-item"
-          key={prod}
+          key={prod.slug}
         >
-          <ProductCard />
+          <ProductCard product={prod} />
         </li>
       ))}
     </ul>

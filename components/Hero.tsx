@@ -6,7 +6,10 @@ const Hero = ({}: {}): JSX.Element => {
   return (
     <section
       className="section hero"
-      style={{ backgroundImage: "url('/banner.jpg')" }}
+      style={{
+        backgroundImage:
+          'url(https://res.cloudinary.com/dwr5e5itg/image/upload/v1687435900/jewellery-sadeem/banner_ujtyrj.jpg)',
+      }}
     >
       <div className="container">
         <h2 className="h1 hero-title">

@@ -4,10 +4,12 @@ import React from 'react';
 import { toast } from 'react-toastify';
 
 const ProductCardAction = ({
+  phone,
   text,
   message,
   children,
 }: {
+  phone: string;
   text: string;
   message: string;
   children: JSX.Element;
@@ -15,7 +17,12 @@ const ProductCardAction = ({
   return (
     <li
       className="card-action-item"
-      onClick={() => toast.info(message)}
+      onClick={() => {
+        toast.info(message);
+
+        // Copy the text inside the text field
+        navigator.clipboard.writeText(phone);
+      }}
     >
       <button
         className="card-action-btn"

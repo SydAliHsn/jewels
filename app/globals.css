@@ -8,6 +8,7 @@
   --primary-light: #ffe3ee;
   --primary: #ff4286;
   --smoky-black: rgb(7, 6, 1);
+  --gainsboro: hsl(0, 0%, 88%);
   --gr: hsl(0, 0%, 88%);
   --black_90: hsla(0, 0%, 0%, 0.9);
   --cultured: hsl(200, 12%, 95%);
@@ -237,7 +238,6 @@ body {
   height: 350px;
   overflow: hidden;
   border-radius: 8px;
-  cursor: pointer;
 }
 
 .image-contain {
@@ -1708,3 +1708,34 @@ a.footer-link:is(:hover, :focus) {
   }
 }
 /* End of Loader */
+
+/* Not Found */
+.not-found {
+  padding-top: 8rem;
+  padding-bottom: 8rem;
+  background-image: url(/images/background.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.not-found h1 {
+  color: var(--white);
+  max-width: 70rem;
+  text-align: center;
+  line-height: 1.5;
+}
+
+.not-found .btn {
+  transition: all 0.3s;
+  border-radius: 5px;
+}
+.not-found .btn .icon {
+  margin-bottom: 4px;
+}
+
+.not-found .btn-primary:hover {
+  background: var(--white);
+  color: var(--primary);
+}
+/* End of Not Found */

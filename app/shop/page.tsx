@@ -2,9 +2,13 @@ import { NextPage } from 'next';
 import Link from 'next/link';
 
 import ProductList from '@/components/ProductList';
+import FilterList from '@/components/FilterList';
 import Preloader from '@/components/Preloader';
+import { getProducts, getCategories } from '@/lib/helpers';
 
-const Shop: NextPage = (props: {}) => {
+const Shop: NextPage = async (props: {}) => {
+  const products = await getProducts();
+
   return (
     <main className="shop">
       <Preloader />
@@ -12,43 +16,9 @@ const Shop: NextPage = (props: {}) => {
       <div className="container">
         <h1>Your Own Jewellery Store</h1>
 
-        <ul
-          className="filter-list"
-          style={{ marginTop: '1rem' }}
-        >
-          <li>
-            <button className="filter-btn  active">All</button>
-          </li>
+        <FilterList filterOptions={getCategories('all')} />
 
-          <li>
-            <Link
-              href="/shop/women"
-              className="filter-btn"
-            >
-              Women
-            </Link>
-          </li>
-
-          <li>
-            <Link
-              href="/shop/men"
-              className="filter-btn"
-            >
-              Men
-            </Link>
-          </li>
-
-          <li>
-            <Link
-              href="/shop/kids"
-              className="filter-btn"
-            >
-              Kids
-            </Link>
-          </li>
-        </ul>
-
-        <ProductList category="all" />
+        <ProductList products={products} />
       </div>
     </main>
   );
