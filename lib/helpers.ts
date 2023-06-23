@@ -10,7 +10,7 @@ export const getProducts = async (options?: {
 }) => {
   // It will revalidate data after every 30 minutes
   const baseUrl = process.env.ENVIRONMENT === 'production' ? process.env.VERCEL_URL : process.env.BASE_URL;
-  const res = await fetch(`${baseUrl}/api/products`, { next: { revalidate: 60 * 30 } });
+  const res = await fetch(`http://${baseUrl}/api/products`, { next: { revalidate: 60 * 30 } });
   const data = await res.json();
 
   let products: Product[] = data.products;
