@@ -8,9 +8,9 @@ type Props = { params: { slug: string } };
 export async function generateStaticParams() {
   const products = await getProducts();
 
-  return products.map(({ slug }) => ({
-    slug,
-  }));
+  return products.map(({ slug }) => {
+    return { slug };
+  });
 }
 
 const ProductDetails: NextPage<Props> = async ({ params }) => {

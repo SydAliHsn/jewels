@@ -1,6 +1,7 @@
 import { Product, Category } from '@/lib/types';
+import { getAllProducts } from './storyblok';
 
-const unisexSubCategories = ['men', 'women'];
+// ////////////// /////// Fetch Products /////// ////////////// ////
 
 export const getProducts = async (options?: {
   page?: number;
@@ -8,12 +9,7 @@ export const getProducts = async (options?: {
   bestseller?: boolean;
   featured?: boolean;
 }) => {
-  // It will revalidate data after every 30 minutes
-  const baseUrl = process.env.ENVIRONMENT === 'production' ? process.env.VERCEL_URL : process.env.BASE_URL;
-  const res = await fetch(`http://${baseUrl}/api/products`, { next: { revalidate: 60 * 30 } });
-  const data = await res.json();
-
-  let products: Product[] = data.products;
+  let products = await getAllProducts();
 
   if (!options) return products;
 
@@ -23,8 +19,8 @@ export const getProducts = async (options?: {
     const category = options.category.toLowerCase();
 
     products = products.filter(prod => {
-      // Check if the category of the product is the same as the requested category.
-      // Or if the product's category if "unisex", then add it as well, if the requested category is "men" or "women"
+      // 1) Check if the category of the product is the same as the requested category.
+      // 2) Or if the product's category if "unisex", then add it as well, if the requested category is "men" or "women"
       return prod.category === category || (prod.category === 'unisex' && unisexSubCategories.includes(category));
     });
   }
@@ -45,6 +41,9 @@ export const getProducts = async (options?: {
   return products;
 };
 
+//////////////// /////////////// General //////////////// /////////////
+
+const unisexSubCategories = ['men', 'women'];
 export const getCategories = (active: string): Category[] => {
   return [
     {

@@ -30,7 +30,7 @@ const navbarLinks = [
   },
 ];
 
-const NavbarItem = ({ path, page, active }: { path: string; page: string; active: boolean }): JSX.Element => {
+const NavbarItem = ({ path, page, active }: { path: string; page: string; active?: boolean }): JSX.Element => {
   return (
     <li className="navbar-item">
       <Link
@@ -120,7 +120,7 @@ const Header = ({}: {}): JSX.Element => {
                   key={path}
                   path={path}
                   page={page}
-                  active={pathname === path || (path !== '/' && pathname.startsWith(path))}
+                  active={pathname === path || (path !== '/' && pathname?.startsWith(path))}
                 />
               );
             })}
