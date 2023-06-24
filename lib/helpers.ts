@@ -1,5 +1,5 @@
 import { Product, Category } from '@/lib/types';
-import { getAllProducts } from './storyblok';
+import { getAllInstagramPosts, getAllProducts } from './storyblok';
 
 // ////////////// /////// Fetch Products /////// ////////////// ////
 
@@ -7,6 +7,7 @@ export const getProducts = async (options?: {
   page?: number;
   category?: string;
   bestseller?: boolean;
+  slug?: string;
   featured?: boolean;
 }) => {
   let products = await getAllProducts();
@@ -14,6 +15,10 @@ export const getProducts = async (options?: {
   if (!options) return products;
 
   const productsPerPage = Number(process.env.PRODUCTS_PER_PAGE) || 25;
+
+  if (options.slug) {
+    return products.find(({ slug }) => slug === options.slug);
+  }
 
   if (options.category) {
     const category = options.category.toLowerCase();
@@ -41,8 +46,12 @@ export const getProducts = async (options?: {
   return products;
 };
 
-//////////////// /////////////// General //////////////// /////////////
+// ////////////// /////// Fetch Instagram /////// ////////////// ////
+export const getInstagramPosts = () => {
+  return getAllInstagramPosts();
+};
 
+//////////////// /////////////// General //////////////// /////////////
 const unisexSubCategories = ['men', 'women'];
 export const getCategories = (active: string): Category[] => {
   return [

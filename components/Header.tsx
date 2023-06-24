@@ -52,7 +52,7 @@ const Header = ({}: {}): JSX.Element => {
 
   useEffect(() => {
     const func = () => {
-      if (window.scrollY > 400) {
+      if (window.scrollY > 300) {
         setHeaderActive(true);
         setTopBtnActive(true);
       } else {

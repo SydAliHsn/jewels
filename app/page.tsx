@@ -9,11 +9,15 @@ import Instagram from '@/components/Instagram';
 import ProductCard from '@/components/ProductCard';
 import { AiOutlineArrowRight } from 'react-icons/ai';
 import Preloader from '@/components/Preloader';
-import { getProducts } from '@/lib/helpers';
+import { getInstagramPosts, getProducts } from '@/lib/helpers';
+import { InstagramPost, Product } from '@/lib/types';
+
+export const revalidate = 3600;
 
 export default async function Home() {
-  const bestsellerProducts = await getProducts({ bestseller: true });
-  const featuredProducts = await getProducts({ featured: true });
+  const bestsellerProducts = (await getProducts({ bestseller: true })) as Product[];
+  const featuredProducts = (await getProducts({ featured: true })) as Product[];
+  const instagramPosts = (await getInstagramPosts()) as InstagramPost[];
 
   return (
     <div>
@@ -108,7 +112,7 @@ export default async function Home() {
 
           <Services />
 
-          <Instagram />
+          <Instagram posts={instagramPosts} />
         </article>
       </main>
     </div>

@@ -81,7 +81,7 @@ const ProductCard = ({ product }: { product: Product }): JSX.Element => {
         <ul className="card-action-list">
           <li className="card-action-item">
             <Link
-              href={`https://wa.me/+9203264603123?text=${encodeURI(
+              href={`https://wa.me/${process.env.PHONE_NUMBER}?text=${encodeURI(
                 `Hi! I would like to order this product from your store: ${process.env.BASE_URL}/product/${slug}`
               )}`}
               target="_blank"
@@ -90,7 +90,7 @@ const ProductCard = ({ product }: { product: Product }): JSX.Element => {
             >
               <BsWhatsapp
                 className="icon"
-                style={{ color: '#2AD066' }}
+                style={{ color: 'var(--whatsapp)' }}
               />
             </Link>
 
@@ -105,7 +105,7 @@ const ProductCard = ({ product }: { product: Product }): JSX.Element => {
           <ProductCardPhone
             text="Call to order"
             message="Phone no. copied to clipboard!"
-            phone="+9203334225968"
+            phone={process.env.PHONE_NUMBER as string}
           >
             <AiOutlinePhone
               className="icon"

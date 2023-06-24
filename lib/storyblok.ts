@@ -1,12 +1,13 @@
 import StoryblokClient from 'storyblok-js-client';
 import { NextResponse } from 'next/server';
 
-import { Product } from '@/lib/types';
+import { InstagramPost, Product } from '@/lib/types';
 
 const Storyblok = new StoryblokClient({
   accessToken: process.env.STORYBLOK_SPACE_ACCESS_TOKEN,
 });
 
+// ////////////// //////////  Products  ///// //////
 export async function getAllProducts() {
   let per_page = 100;
 
@@ -15,7 +16,7 @@ export async function getAllProducts() {
 
   const requests = Array(totalRequests)
     .fill('')
-    .map((_, i) => getProducts({ page: i + 1, per_page }));
+    .map((_, i) => getStories({ page: i + 1, per_page, starts_with: 'products' }));
 
   const [productStories] = await Promise.all(requests);
 
@@ -42,8 +43,24 @@ export async function getAllProducts() {
   return products;
 }
 
-const getProducts = async ({ page, per_page }: { page: number; per_page: number }) => {
-  const { data } = await Storyblok.get('cdn/stories', { per_page, page, starts_with: 'products' });
+const getStories = async ({ page, per_page, starts_with }: { page: number; per_page: number; starts_with: string }) => {
+  const { data } = await Storyblok.get('cdn/stories', { per_page, page, starts_with });
 
   return data.stories;
 };
+
+// //////////// Instagram Posts /////////
+export async function getAllInstagramPosts() {
+  const postStories = await getStories({ starts_with: 'instagram-posts', per_page: 100, page: 1 });
+
+  const instagramPosts: InstagramPost[] = postStories.map((story: any) => {
+    const { image, alt } = story.content;
+
+    return {
+      url: image.filename,
+      alt: alt,
+    };
+  });
+
+  return instagramPosts;
+}

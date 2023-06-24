@@ -16,6 +16,11 @@ export interface Product {
   }[];
 }
 
+export interface InstagramPost {
+  url: string;
+  alt?: string;
+}
+
 export interface Category {
   title: string;
   href: string;

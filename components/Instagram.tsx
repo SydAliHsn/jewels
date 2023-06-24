@@ -1,22 +1,23 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
+import { InstagramPost } from '@/lib/types';
 import { BsInstagram } from 'react-icons/bs';
 
-const Post = ({ img }: { img: string }): JSX.Element => {
+const Post = ({ post }: { post: InstagramPost }): JSX.Element => {
   return (
     <li className="insta-post-item">
-      <img
-        src={img}
-        width="100"
-        height="100"
+      <Image
+        src={post.url}
         loading="lazy"
-        alt="Instagram post"
-        className="insta-post-banner image-contain"
+        alt={post.alt || 'Instagram Post'}
+        className="insta-post-banner image-cover"
+        fill={true}
       />
 
       <Link
-        href="https://instagram.com/"
+        href={`https://instagram.com/${process.env.INSTAGRAM_USERNAME}`}
         target="_blank"
         className="insta-post-link"
       >
@@ -26,26 +27,14 @@ const Post = ({ img }: { img: string }): JSX.Element => {
   );
 };
 
-const Instagram = (props: {}): JSX.Element => {
+const Instagram = ({ posts }: { posts: InstagramPost[] }): JSX.Element => {
   return (
     <section className="section insta-post">
       <h3>From Our Instagram</h3>
       <ul className="insta-post-list has-scrollbar">
-        <Post img="/images/insta-8.jpg" />
-
-        <Post img="/images/insta-1.jpg" />
-
-        <Post img="/images/insta-2.jpg" />
-
-        <Post img="/images/insta-3.jpg" />
-
-        <Post img="/images/insta-4.jpg" />
-
-        <Post img="/images/insta-5.jpg" />
-
-        <Post img="/images/insta-6.jpg" />
-
-        <Post img="/images/insta-7.jpg" />
+        {posts.map(post => (
+          <Post post={post} />
+        ))}
       </ul>
     </section>
   );
