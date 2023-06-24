@@ -5,11 +5,12 @@ import FilterList from '@/components/FilterList';
 import ProductList from '@/components/ProductList';
 import Preloader from '@/components/Preloader';
 import { getProducts, getCategories } from '@/lib/helpers';
+import { Product } from '@/lib/types';
 
 export const dynamicParams = false;
 
 export async function generateStaticParams() {
-  const products = await getProducts();
+  const products = (await getProducts()) as Product[];
   const numberOfPages = Math.ceil(products.length / Number(process.env.PRODUCTS_PER_PAGE));
 
   if (!numberOfPages)
@@ -30,7 +31,7 @@ type Props = { params: { pageNumber: string } };
 const ShopPage: NextPage<Props> = async ({ params }) => {
   const { pageNumber } = params;
 
-  const products = await getProducts({ page: Number(pageNumber) });
+  const products = (await getProducts({ page: Number(pageNumber) })) as Product[];
 
   return (
     <main className="shop">

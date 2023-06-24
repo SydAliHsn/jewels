@@ -4,6 +4,7 @@ import { getProducts, getCategories } from '@/lib/helpers';
 import FilterList from '@/components/FilterList';
 import Preloader from '@/components/Preloader';
 import ProductList from '@/components/ProductList';
+import { Product } from '@/lib/types';
 
 export const dynamicParams = false;
 export const revalidate = 360;
@@ -21,7 +22,7 @@ type Props = { params: { category: string } };
 const ShopCategory: NextPage<Props> = async ({ params }) => {
   const { category } = params;
 
-  const products = await getProducts({ category });
+  const products = (await getProducts({ category })) as Product[];
 
   // let bgColor;
   // switch (category) {

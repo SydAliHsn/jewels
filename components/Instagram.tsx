@@ -33,7 +33,10 @@ const Instagram = ({ posts }: { posts: InstagramPost[] }): JSX.Element => {
       <h3>From Our Instagram</h3>
       <ul className="insta-post-list has-scrollbar">
         {posts.map(post => (
-          <Post post={post} />
+          <Post
+            post={post}
+            key={post.url}
+          />
         ))}
       </ul>
     </section>

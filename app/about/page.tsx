@@ -26,15 +26,15 @@ const Page: NextPage = (props: {}) => {
             </h1>
 
             <p>
-              Welcome to Sadeem's Jewels, a haven of creativity and passion. Led by young entrepreneur Sadeem, our
+              Welcome to Sadeem&apos;s Jewels, a haven of creativity and passion. Led by young entrepreneur Sadeem, our
               online store features a collection of handcrafted and unique jewellery pieces. Meticulously crafted with
               high-quality materials and exquisite gemstones, our designs radiate elegance and style. Discover the
               perfect piece that tells your story with grace and beauty.
             </p>
             <p>
-              At Sadeem's Jewels, we celebrate the art of self-expression through jewellery. From statement necklaces to
-              delicate earrings, our collection caters to every occasion and personal style. Indulge in the timeless
-              beauty and exquisite craftsmanship of Sadeem's Jewels, and let your individuality shine
+              At Sadeem&apos;s Jewels, we celebrate the art of self-expression through jewellery. From statement
+              necklaces to delicate earrings, our collection caters to every occasion and personal style. Indulge in the
+              timeless beauty and exquisite craftsmanship of Sadeem&apos;s Jewels, and let your individuality shine
             </p>
 
             <ul className="social-list">

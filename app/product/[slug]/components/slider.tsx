@@ -33,7 +33,7 @@ const Slider = ({
             className="slider-main"
           >
             <img
-              fill={true}
+              // fill={true}
               src={url}
               alt={alt || 'product-image'}
             />
@@ -54,7 +54,7 @@ const Slider = ({
             className="slider-thumb"
           >
             <img
-              fill={true}
+              // fill={true}
               src={url}
               alt={alt || 'product-image'}
             />
