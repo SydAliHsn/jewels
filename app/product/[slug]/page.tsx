@@ -66,7 +66,10 @@ const ProductDetails: NextPage<Props> = async ({ params }) => {
             {salePrice ? <s className="old-price">Rs. {price}.00</s> : ''}
           </div>
 
-          <Buttons slug={slug} />
+          <Buttons
+            slug={slug}
+            name={name}
+          />
         </section>
       </div>
     </main>
