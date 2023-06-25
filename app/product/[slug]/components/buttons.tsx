@@ -7,7 +7,7 @@ import { AiOutlinePhone } from 'react-icons/ai';
 import Link from 'next/link';
 
 const buttons = ({ slug, name }: { slug: string; name: string }): JSX.Element => {
-  const phone = process.env.PHONE_NUMBER_1?.replaceAll('-', '').replaceAll('(', '').replaceAll(')', '') || '';
+  const phoneNumber = process.env.PHONE_NUMBER_1?.replaceAll('-', '').replaceAll('(', '').replaceAll(')', '') || '';
 
   return (
     <div className="buttons">
@@ -18,9 +18,9 @@ const buttons = ({ slug, name }: { slug: string; name: string }): JSX.Element =>
         <AiOutlinePhone className="icon" /> Call to Order Now
       </div>
       <Link
-        href={`https://wa.me/${encodeURI(phone)}?text=Hi! I would like to order this product from your store: ${name} ${
-          process.env.BASE_URL
-        }/product/${slug}`}
+        href={`https://wa.me/${phoneNumber}?text=${encodeURI(
+          `Hi! I would like to order this product from your store: ${name} ${process.env.BASE_URL}/product/${slug}`
+        )}`}
         target="_blank"
         className="btn wiggle-animation btn-whatsapp"
       >
