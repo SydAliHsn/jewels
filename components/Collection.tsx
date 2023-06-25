@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { AiOutlineArrowRight } from 'react-icons/ai';
 
-const CollectionCard = ({ title, img }: { title: string; img: string }): JSX.Element => {
+const CollectionCard = ({ title, img, category }: { title: string; img: string; category: string }): JSX.Element => {
   return (
     <div
       className="collection-card"
@@ -17,7 +17,7 @@ const CollectionCard = ({ title, img }: { title: string; img: string }): JSX.Ele
       </h3>
 
       <Link
-        href="/shop/"
+        href={`/shop/${category}`}
         className="btn btn-secondary"
         style={{ zIndex: 2 }}
       >
@@ -30,9 +30,21 @@ const CollectionCard = ({ title, img }: { title: string; img: string }): JSX.Ele
 };
 
 const collectionCards = [
-  { title: "Men's Collection", img: '/images/collection-2.jpg' },
-  { title: "Women's Collection", img: '/images/collection-1.jpg' },
-  { title: "Kid's Collection", img: '/images/collection-3.jpg' },
+  {
+    title: "Men's Collection",
+    img: 'https://res.cloudinary.com/dwr5e5itg/image/upload/v1687705473/jewellery-sadeem/collection-2_rxmblh.jpg',
+    category: 'men',
+  },
+  {
+    title: "Women's Collection",
+    img: 'https://res.cloudinary.com/dwr5e5itg/image/upload/v1687705473/jewellery-sadeem/collection-1_mlmpso.jpg',
+    category: 'women',
+  },
+  {
+    title: "Kid's Collection",
+    img: 'https://res.cloudinary.com/dwr5e5itg/image/upload/v1687705473/jewellery-sadeem/collection-3_hb41xc.jpg',
+    category: 'kids',
+  },
 ];
 
 const Collection = ({}: {}): JSX.Element => {
@@ -40,9 +52,10 @@ const Collection = ({}: {}): JSX.Element => {
     <section className="section collection">
       <div className="container">
         <ul className="collection-list has-scrollbar">
-          {collectionCards.map(({ img, title }) => (
+          {collectionCards.map(({ img, title, category }) => (
             <li key={title}>
               <CollectionCard
+                category={category}
                 img={img}
                 title={title}
               />

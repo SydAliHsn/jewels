@@ -10,7 +10,7 @@ import './globals.css';
 const inter = Josefin_Sans({ subsets: ['latin'] });
 
 export const metadata = {
-  title: { default: 'Jewels | Your Jewellery Store', template: '%s | Jewels' },
+  title: { default: 'BeJeweled | Your Jewellery Store', template: '%s | BeJeweled' },
   description: 'Your own Jewellery Store',
   keywords: ['Jewellery', 'Pakistan Jewellery Store', 'Affordable Jewellery'],
 };

@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 
 const Services = (props: {}): JSX.Element => {
   return (
@@ -8,7 +9,7 @@ const Services = (props: {}): JSX.Element => {
           <li className="service-item">
             <div className="service-card">
               <div className="card-icon">
-                <img
+                <Image
                   src="/images/service-1.png"
                   width="53"
                   height="28"
@@ -30,7 +31,7 @@ const Services = (props: {}): JSX.Element => {
           <li className="service-item">
             <div className="service-card">
               <div className="card-icon">
-                <img
+                <Image
                   src="/images/service-2.png"
                   width="43"
                   height="35"
@@ -50,7 +51,7 @@ const Services = (props: {}): JSX.Element => {
           <li className="service-item">
             <div className="service-card">
               <div className="card-icon">
-                <img
+                <Image
                   src="/images/service-3.png"
                   width="40"
                   height="40"
@@ -70,7 +71,7 @@ const Services = (props: {}): JSX.Element => {
           <li className="service-item">
             <div className="service-card">
               <div className="card-icon">
-                <img
+                <Image
                   src="/images/service-4.png"
                   width="40"
                   height="40"

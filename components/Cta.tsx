@@ -1,6 +1,12 @@
+'use client';
+
 import React from 'react';
+import Link from 'next/link';
+import { FaArrowRight } from 'react-icons/fa';
 
 const Cta = ({}: {}): JSX.Element => {
+  const getSeason = (d: Date) => Math.floor((d.getMonth() / 12) * 4) % 4;
+
   return (
     <section className="section cta">
       <div className="container">
@@ -8,40 +14,48 @@ const Cta = ({}: {}): JSX.Element => {
           <li>
             <div
               className="cta-card"
-              style={{ backgroundImage: "url('/images/cta-1.jpg')" }}
+              style={{
+                backgroundImage:
+                  "url('https://res.cloudinary.com/dwr5e5itg/image/upload/v1687699870/jewellery-sadeem/cta-1_unazkt.jpg')",
+              }}
             >
-              <p className="card-subtitle">Adidas Shoes</p>
+              <p className="card-subtitle">Timeless Elegance</p>
 
-              <h3 className="h2 card-title">The Summer Sale Off 50%</h3>
+              <h3 className="h2 card-title">
+                {['Spring', 'Summer', 'Autumn', 'Winter'][getSeason(new Date())]} Sale! Upto 50% Off
+              </h3>
 
-              <a
-                href="#"
+              <Link
+                href="/shop"
                 className="btn btn-link"
               >
                 <span>Shop Now</span>
 
-                {/* <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon> */}
-              </a>
+                <FaArrowRight />
+              </Link>
             </div>
           </li>
 
           <li>
             <div
               className="cta-card"
-              style={{ backgroundImage: "url('/images/cta-2.jpg')" }}
+              style={{
+                backgroundImage:
+                  'url(https://res.cloudinary.com/dwr5e5itg/image/upload/v1687702218/jewellery-sadeem/cta-2_1_pdcrxc.jpg)',
+              }}
             >
-              <p className="card-subtitle">Nike Shoes</p>
+              <p className="card-subtitle">Sparkling Gems</p>
 
-              <h3 className="h2 card-title">Makes Yourself Keep Sporty</h3>
+              <h3 className="h2 card-title">Decorate Yourself, Embrace Luxury</h3>
 
-              <a
-                href="#"
+              <Link
+                href="/shop"
                 className="btn btn-link"
               >
                 <span>Shop Now</span>
 
-                {/* <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon> */}
-              </a>
+                <FaArrowRight />
+              </Link>
             </div>
           </li>
         </ul>

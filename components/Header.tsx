@@ -81,8 +81,9 @@ const Header = ({}: {}): JSX.Element => {
           className="logo"
         >
           <h1 style={{ color: 'black' }}>
+            Be
             <span style={{ color: 'var(--primary)', display: 'inline' }}>J</span>
-            ewels
+            eweled
           </h1>
         </a>
 
@@ -108,8 +109,9 @@ const Header = ({}: {}): JSX.Element => {
             className="logo"
           >
             <h1 style={{ color: 'black' }}>
+              Be
               <span style={{ color: 'var(--primary)', display: 'inline' }}>J</span>
-              ewels
+              eweled
             </h1>
           </Link>
 

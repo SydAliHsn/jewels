@@ -7,7 +7,7 @@ import Preloader from '@/components/Preloader';
 import { getProducts, getCategories } from '@/lib/helpers';
 import { Product } from '@/lib/types';
 
-export const revalidate = 360;
+export const revalidate = 3600;
 
 const Shop: NextPage = async (props: {}) => {
   const products = (await getProducts()) as Product[];

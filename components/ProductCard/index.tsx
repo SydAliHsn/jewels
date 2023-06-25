@@ -57,6 +57,8 @@ const ProductCard = ({ product }: { product: Product }): JSX.Element => {
     return <div className="card-badge">{badgeText}</div>;
   };
 
+  const phoneNumber = process.env.PHONE_NUMBER_1?.replaceAll('-', '').replaceAll('(', '').replaceAll(')', '');
+
   return (
     <div
       className="product-card"
@@ -81,8 +83,8 @@ const ProductCard = ({ product }: { product: Product }): JSX.Element => {
         <ul className="card-action-list">
           <li className="card-action-item">
             <Link
-              href={`https://wa.me/${process.env.PHONE_NUMBER}?text=${encodeURI(
-                `Hi! I would like to order this product from your store: ${process.env.BASE_URL}/product/${slug}`
+              href={`https://wa.me/${phoneNumber}?text=${encodeURI(
+                `Hi! I would like to order this product from your store: ${name} ${process.env.BASE_URL}/product/${slug}`
               )}`}
               target="_blank"
               className="card-action-btn"
@@ -104,8 +106,8 @@ const ProductCard = ({ product }: { product: Product }): JSX.Element => {
 
           <ProductCardPhone
             text="Call to order"
-            message="Phone no. copied to clipboard!"
-            phone={process.env.PHONE_NUMBER as string}
+            message={`Phone no. copied to clipboard! Hurry and call now to order.`}
+            phone={phoneNumber as string}
           >
             <AiOutlinePhone
               className="icon"
@@ -122,7 +124,7 @@ const ProductCard = ({ product }: { product: Product }): JSX.Element => {
           <Link href={`/product/${slug}`}>{name}</Link>
         </h3>
 
-        <data className="card-price">{salePrice ? salePrice : price} Rs.</data>
+        <data className="card-price">Rs. {salePrice ? salePrice : price}</data>
       </div>
     </div>
   );

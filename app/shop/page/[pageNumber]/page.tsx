@@ -6,8 +6,11 @@ import ProductList from '@/components/ProductList';
 import Preloader from '@/components/Preloader';
 import { getProducts, getCategories } from '@/lib/helpers';
 import { Product } from '@/lib/types';
+import NotFound from '@/components/NotFound';
 
-export const dynamicParams = false;
+// export const dynamicParams = false;
+
+export const revalidate = 3600;
 
 export async function generateStaticParams() {
   const products = (await getProducts()) as Product[];
@@ -32,6 +35,8 @@ const ShopPage: NextPage<Props> = async ({ params }) => {
   const { pageNumber } = params;
 
   const products = (await getProducts({ page: Number(pageNumber) })) as Product[];
+
+  if (!products.length) return <NotFound />;
 
   return (
     <main className="shop">

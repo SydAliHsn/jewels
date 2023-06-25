@@ -859,6 +859,13 @@ body {
   gap: 0;
 }
 
+@media (max-width: 574px) {
+  .insta-post-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
 /* .image-cover { */
 /* object-fit: cover; */
 /* } */
@@ -870,7 +877,7 @@ body {
 
 .insta-post-list .insta-post-item {
   position: relative;
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 1 / 1 !important;
 }
 
 .insta-post-link {
@@ -1832,6 +1839,7 @@ a.footer-link:is(:hover, :focus) {
   flex-direction: column;
   margin-top: 4rem;
   gap: 2rem;
+  width: 100%;
 }
 
 .product-details h1 {
