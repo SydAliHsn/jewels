@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 import Hero from '@/components/Hero';
 import Collection from '@/components/Collection';
 import Services from '@/components/Services';
@@ -56,14 +58,14 @@ export default async function Home() {
               >
                 <h2 className="h3 banner-title">New Trend Edition</h2>
 
-                <a
-                  href="#"
+                <Link
+                  href="/shop"
                   className="btn btn-link"
                 >
                   <span>Explore All</span>
 
                   <AiOutlineArrowRight className="icon" />
-                </a>
+                </Link>
               </div>
 
               <div className="special-product">
