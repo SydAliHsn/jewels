@@ -5,7 +5,7 @@ import { BsWhatsapp } from 'react-icons/bs';
 import { AiOutlinePhone } from 'react-icons/ai';
 
 import { Product } from '@/lib/types';
-import ProductCardPhone from './ProductCardPhone';
+import Phone from './Phone';
 
 const ProductCard = ({ product }: { product: Product }): JSX.Element => {
   const { name, slug, createdAt, category, bestseller, featured, price, salePrice, images } = product;
@@ -104,7 +104,7 @@ const ProductCard = ({ product }: { product: Product }): JSX.Element => {
             </div>
           </li>
 
-          <ProductCardPhone
+          <Phone
             text="Call to order"
             message={`Phone no. copied to clipboard! Hurry and call now to order.`}
             phone={phoneNumber as string}
@@ -113,7 +113,7 @@ const ProductCard = ({ product }: { product: Product }): JSX.Element => {
               className="icon"
               style={{ color: 'var(--primary)' }}
             />
-          </ProductCardPhone>
+          </Phone>
         </ul>
       </figure>
 

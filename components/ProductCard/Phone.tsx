@@ -3,7 +3,7 @@
 import React from 'react';
 import { toast } from 'react-toastify';
 
-const ProductCardAction = ({
+const Phone = ({
   phone,
   text,
   message,
@@ -20,7 +20,6 @@ const ProductCardAction = ({
       onClick={() => {
         toast.info(message);
 
-        // Copy the text inside the text field
         navigator.clipboard.writeText(phone);
       }}
     >
@@ -41,4 +40,4 @@ const ProductCardAction = ({
   );
 };
 
-export default ProductCardAction;
+export default Phone;

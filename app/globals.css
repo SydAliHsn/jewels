@@ -859,13 +859,6 @@ body {
   gap: 0;
 }
 
-@media (max-width: 574px) {
-  .insta-post-list {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-}
-
 /* .image-cover { */
 /* object-fit: cover; */
 /* } */
