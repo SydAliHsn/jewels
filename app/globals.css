@@ -2128,3 +2128,12 @@ a.footer-link:is(:hover, :focus) {
   }
 }
 /* End of About Page */
+
+/* Swiper buttons */
+.swiper-button-next,
+.swiper-button-prev {
+  color: var(--primary) !important;
+  font-weight: 800;
+  scale: 0.7;
+}
+/* End of Swiper buttons */
