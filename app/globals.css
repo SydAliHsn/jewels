@@ -2137,3 +2137,15 @@ a.footer-link:is(:hover, :focus) {
   scale: 0.7;
 }
 /* End of Swiper buttons */
+
+/* Pagination */
+.pagination {
+  padding-top: 6rem;
+  display: flex;
+  justify-content: space-around;
+}
+.pagination-button {
+  font-size: 4.5rem;
+  color: var(--primary);
+}
+/* End of Pagination */
