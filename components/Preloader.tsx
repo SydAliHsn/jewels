@@ -13,7 +13,7 @@ const Preloader = ({}: {}): JSX.Element => {
     setTimeout(() => {
       document.querySelector('html')?.classList.remove('overflow-hidden');
       setVisible(false);
-    }, 700);
+    }, 800);
   }, []);
 
   return (
