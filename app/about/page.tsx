@@ -2,10 +2,13 @@ import { NextPage } from 'next';
 import Image from 'next/image';
 
 import SocialList from '@/components/SocialList';
+import Preloader from '@/components/Preloader';
 
 const Page: NextPage = (props: {}) => {
   return (
     <div className="about">
+      <Preloader />
+
       <div className="container">
         <div className="top">
           <div
