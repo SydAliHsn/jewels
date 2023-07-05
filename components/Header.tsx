@@ -134,14 +134,15 @@ const Header = ({}: {}): JSX.Element => {
 
           <ul className="nav-action-list">
             <li>
-              <button
+              <Link
+                href={'/shop'}
                 className="nav-action-btn"
                 style={{ fontSize: '2rem' }}
               >
                 <BsSearch />
 
                 <span className="nav-action-text">Search</span>
-              </button>
+              </Link>
             </li>
 
             {/* <li>
