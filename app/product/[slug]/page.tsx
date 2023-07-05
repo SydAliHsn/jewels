@@ -6,6 +6,7 @@ import { getProducts } from '@/lib/helpers';
 import Slider from './components/slider';
 import Buttons from './components/buttons';
 import { Product } from '@/lib/types';
+import Preloader from '@/components/Preloader';
 
 // export const dynamicParams = false;
 export const revalidate = 3600;
@@ -46,6 +47,8 @@ const ProductDetails: NextPage<Props> = async ({ params }) => {
 
   return (
     <main className="product-details">
+      <Preloader />
+
       <div className="container">
         <section className="images">
           <Slider images={images} />
