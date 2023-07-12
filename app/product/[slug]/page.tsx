@@ -9,7 +9,7 @@ import { Product } from '@/lib/types';
 import Preloader from '@/components/Preloader';
 
 // export const dynamicParams = false;
-export const revalidate = 3600;
+export const revalidate = 3600 * 2;
 
 type Props = { params: { slug: string } };
 

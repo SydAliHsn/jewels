@@ -12,7 +12,7 @@ import Preloader from '@/components/Preloader';
 import { getInstagramPosts, getProducts } from '@/lib/helpers';
 import { InstagramPost, Product } from '@/lib/types';
 
-export const revalidate = 3600;
+export const revalidate = 3600 * 2;
 
 export default async function Home() {
   const bestsellerProducts = (await getProducts({ bestseller: true })) as Product[];

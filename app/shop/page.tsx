@@ -8,7 +8,7 @@ import Pagination from './Pagination';
 import { getProducts, getCategories } from '@/lib/helpers';
 import { Product } from '@/lib/types';
 
-export const revalidate = 3600;
+export const revalidate = 3600 * 2;
 
 const Shop: NextPage = async (props: {}) => {
   let products = (await getProducts()) as Product[];

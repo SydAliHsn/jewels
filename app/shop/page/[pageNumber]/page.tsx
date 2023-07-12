@@ -11,7 +11,7 @@ import NotFound from '@/components/NotFound';
 
 // export const dynamicParams = false;
 
-export const revalidate = 3600;
+export const revalidate = 3600 * 2;
 
 const getTotalNumOfPages = async (): Promise<number> => {
   const products = (await getProducts()) as Product[];
