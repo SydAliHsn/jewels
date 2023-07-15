@@ -23,7 +23,7 @@ const Preloader = ({}: {}): JSX.Element => {
         <motion.div
           key="preloader"
           initial={{ opacity: 1 }}
-          exit={{ opacity: 0, y: -1200 }}
+          exit={{ opacity: 0, y: -600 }}
           className="preloader"
           // style={{
           //   display: visible ? 'flex' : 'none',
