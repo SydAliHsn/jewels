@@ -66,6 +66,10 @@ const Header = ({}: {}): JSX.Element => {
     return () => window.removeEventListener('scroll', func);
   }, []);
 
+  useEffect(() => {
+    setMobileNavActive(false);
+  }, [pathname]);
+
   const toggleNav = () => setMobileNavActive(!mobileNavActive);
 
   return (
