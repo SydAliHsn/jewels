@@ -47,7 +47,7 @@ const Contact: NextPage = ({}: {}) => {
                 :
               </div>
               <p className="contact-content">
-                {phoneNumber1} & {phoneNumber2}
+                <span>{phoneNumber1}</span> & <span>{phoneNumber2}</span>
               </p>
             </div>
 

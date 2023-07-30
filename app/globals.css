@@ -1593,6 +1593,9 @@ a.footer-link:is(:hover, :focus) {
   font-size: var(--fs-4);
   margin-left: 10%;
   font-weight: 400;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.4rem;
 }
 
 @media (max-width: 768px) {
