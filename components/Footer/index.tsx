@@ -47,7 +47,7 @@ const Footer = ({}: {}): JSX.Element => {
 
               <li>
                 <Link
-                  href="tel:+557343673257"
+                  href={`tel:${phoneNumberStyled?.replaceAll(' ', '')}`}
                   className="footer-link"
                 >
                   <AiOutlinePhone className="icon" />
