@@ -4,8 +4,34 @@ import React from 'react';
 import Link from 'next/link';
 import { FaArrowRight } from 'react-icons/fa';
 
-const Cta = ({}: {}): JSX.Element => {
-  const getSeason = (d: Date) => Math.floor((d.getMonth() / 12) * 4) % 4;
+const Cta = ({ }: {}): JSX.Element => {
+
+  const getCurrentSeason = (): string => {
+    const now = new Date();
+    const month = now.getMonth() + 1; // Months are zero-based (January is 0)
+
+    // Determine the season based on the month
+    switch (month) {
+      case 12:
+      case 1:
+      case 2:
+        return "Winter";
+      case 3:
+      case 4:
+      case 5:
+        return "Spring";
+      case 6:
+      case 7:
+      case 8:
+        return "Summer";
+      case 9:
+      case 10:
+      case 11:
+        return "Fall";
+      default:
+        return "Seasonal";
+    }
+  }
 
   return (
     <section className="section cta">
@@ -22,7 +48,7 @@ const Cta = ({}: {}): JSX.Element => {
               <p className="card-subtitle">Timeless Elegance</p>
 
               <h3 className="h2 card-title">
-                {['Spring', 'Summer', 'Autumn', 'Winter'][getSeason(new Date())]} Sale! Upto 50% Off
+                {getCurrentSeason()} Sale! Upto 50% Off
               </h3>
 
               <Link
