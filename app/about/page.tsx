@@ -46,7 +46,7 @@ const Page: NextPage = (props: {}) => {
             style={{ position: 'relative', flex: '1 1 0' }}
           >
             <Image
-              src="https://res.cloudinary.com/dwr5e5itg/image/upload/v1687623812/jewellery-sadeem/about_suq8oe.jpg"
+              src="https://res.cloudinary.com/dwr5e5itg/image/upload/v1691178672/jewellery-sadeem/about_lku0xu.jpg"
               alt="about-us"
               fill={true}
             />
