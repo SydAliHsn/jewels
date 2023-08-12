@@ -3,14 +3,14 @@
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const Preloader = ({}: {}): JSX.Element => {
+const Preloader = ({ }: {}): JSX.Element => {
   const [visible, setVisible] = useState(true);
 
   useEffect(() => {
     // document.documentElement.scrollTop = 0;
     // window.scrollTo(0, 0);
 
-    document.querySelector('html')?.classList.add('overflow-hidden');
+    // document.querySelector('html')?.classList.add('overflow-hidden');
     setTimeout(() => {
       document.querySelector('html')?.classList.remove('overflow-hidden');
       setVisible(false);
