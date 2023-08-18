@@ -35,7 +35,7 @@ const Preloader = ({ }: {}): JSX.Element => {
             <div></div>
           </div>
 
-          <h1 style={{ paddingTop: '1rem', color: '#111' }}>Loading...</h1>
+          <h1 style={{ paddingTop: '1rem', color: '#111', fontSize: '3.5rem' }}>Loading...</h1>
         </motion.div>
       )}
     </AnimatePresence>
