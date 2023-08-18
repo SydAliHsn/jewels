@@ -21,6 +21,18 @@ export default async function sitemap() {
       url: '/',
       lastModified: new Date(),
     },
+    {
+      url: '/contact',
+      lastModified: new Date(),
+    },
+    {
+      url: '/about',
+      lastModified: new Date(),
+    },
+    {
+      url: '/shop',
+      lastModified: new Date(),
+    },
 
     ...categoryUrls,
     ...productUrls,
