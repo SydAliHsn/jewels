@@ -1987,7 +1987,7 @@ a.footer-link:is(:hover, :focus) {
 
 @media (max-width: 480px) {
   .product-details h1 {
-    font-size: 3.8rem;
+    font-size: 3.5rem;
   }
 
   .product-details .buttons .btn {
