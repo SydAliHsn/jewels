@@ -856,13 +856,13 @@ body {
 \*-----------------------------------*/
 
 .insta-post-list {
-  gap: 0;
+  gap: 1rem;
+  padding-bottom: 1rem !important;
 }
 
-/* .image-cover { */
-/* object-fit: cover; */
-/* } */
-
+.insta-post {
+  padding-bottom: 1rem !important;
+}
 .insta-post h3 {
   padding: 2rem;
   font-size: 3rem;
@@ -871,6 +871,9 @@ body {
 .insta-post-list .insta-post-item {
   position: relative;
   aspect-ratio: 1 / 1 !important;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  min-width: 75%;
 }
 
 .insta-post-link {
