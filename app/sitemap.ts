@@ -18,19 +18,19 @@ export default async function sitemap() {
 
   return [
     {
-      url: '/',
+      url: baseUrl,
       lastModified: new Date(),
     },
     {
-      url: '/contact',
+      url: baseUrl + '/contact',
       lastModified: new Date(),
     },
     {
-      url: '/about',
+      url: baseUrl + '/about',
       lastModified: new Date(),
     },
     {
-      url: '/shop',
+      url: baseUrl + '/shop',
       lastModified: new Date(),
     },
 
