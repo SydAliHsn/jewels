@@ -1858,7 +1858,7 @@ a.footer-link:is(:hover, :focus) {
   background-color: var(--primary);
   color: var(--white);
   border-radius: 40px;
-  padding: 1rem 2rem;
+  padding: 0.75rem 1.5rem;
 }
 
 .product-details .price-area {
@@ -1885,12 +1885,18 @@ a.footer-link:is(:hover, :focus) {
 
 .product-details .buttons {
   display: flex;
+  gap: 3rem;
   justify-content: space-between;
   margin-top: 1rem;
+  max-width: 55rem;
+  margin-left: auto;
+  margin-right: auto;
 }
 .product-details .buttons .btn {
   border-radius: 9px;
   text-align: center;
+  display: flex;
+  /* gap: 1rem; */
 }
 .product-details .buttons .icon {
   font-size: 2.5rem;
@@ -1949,10 +1955,6 @@ a.footer-link:is(:hover, :focus) {
   .slider-thumb {
     width: 4rem;
   }
-
-  .product-details .buttons .icon {
-    margin-right: -1rem;
-  }
 }
 
 @media (max-width: 768px) {
@@ -1983,9 +1985,6 @@ a.footer-link:is(:hover, :focus) {
     width: auto;
     line-height: 1.2;
   }
-  .product-details .buttons .icon {
-    margin-right: 5px;
-  }
 }
 
 @media (max-width: 480px) {
@@ -1993,6 +1992,9 @@ a.footer-link:is(:hover, :focus) {
     font-size: 3.5rem;
   }
 
+  .product-details .buttons {
+    gap: 2rem;
+  }
   .product-details .buttons .btn {
     font-size: 1.6rem;
     padding: 1rem;
@@ -2000,9 +2002,8 @@ a.footer-link:is(:hover, :focus) {
     line-height: 1.2;
   }
   .product-details .buttons .icon {
-    /* margin-right: 5px; */
     margin-right: 0;
-    font-size: 1.5rem;
+    font-size: 2rem;
   }
 }
 
@@ -2012,13 +2013,28 @@ a.footer-link:is(:hover, :focus) {
     font-size: 3.6;
   }
   .product-details .buttons {
-    flex-direction: column;
+    /* flex-direction: column; */
     gap: 1.5rem;
     align-items: center;
   }
   .product-details .buttons .btn {
-    padding: 1.25rem 2rem;
+    flex-direction: column;
+    padding: 0.75rem 1rem;
+    /* display: block; */
+  }
+  .product-details .buttons .btn .icon {
     display: block;
+    margin: 0;
+    /* font-size: 3rem; */
+  }
+}
+@media (max-width: 374px) {
+  .product-details .buttons {
+    flex-direction: column;
+  }
+  .product-details .buttons .btn {
+    flex-direction: row;
+    padding: 1rem 1.5rem;
   }
 }
 /* End of Product Details Page */
