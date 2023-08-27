@@ -215,7 +215,7 @@ body {
 
 .has-scrollbar > li {
   min-width: 100%;
-  scroll-snap-align: start;
+  scroll-snap-align: center;
 }
 
 .has-scrollbar::-webkit-scrollbar {
