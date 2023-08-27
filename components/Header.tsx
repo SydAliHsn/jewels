@@ -43,7 +43,7 @@ const NavbarItem = ({ path, page, active }: { path: string; page: string; active
   );
 };
 
-const Header = ({}: {}): JSX.Element => {
+const Header = ({ }: {}): JSX.Element => {
   const pathname = usePathname();
 
   const [headerActive, setHeaderActive] = useState(false);
@@ -52,7 +52,7 @@ const Header = ({}: {}): JSX.Element => {
 
   useEffect(() => {
     const func = () => {
-      if (window.scrollY > 300) {
+      if (window.scrollY > 100) {
         setHeaderActive(true);
         setTopBtnActive(true);
       } else {
