@@ -1,5 +1,4 @@
-import Head from 'next/head';
-import { Josefin_Sans } from 'next/font/google';
+import { Josefin_Sans, Roboto } from 'next/font/google';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -7,7 +6,18 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import './globals.css';
 
-const inter = Josefin_Sans({ subsets: ['latin'] });
+const josefin_sans = Josefin_Sans({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700'],
+  variable: '--ff-josefin-sans',
+  display: 'swap'
+});
+const roboto = Roboto({
+  subsets: ['latin'],
+  weight: ['400', '500', '700'],
+  variable: '--ff-roboto',
+  display: 'swap',
+});
 
 export const metadata = {
   title: { default: 'BeJeweled | Your Jewellery Store', template: '%s | BeJeweled' },
@@ -19,14 +29,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html
       lang="en"
-      className="overflow-hidden"
+      className={`overflow-hidden ${roboto.variable} ${josefin_sans.variable}`}
     >
-      <Head>
-        <link
-          href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&family=Roboto:wght@400;500;700&display=swap"
-          rel="stylesheet"
-        />
-      </Head>
       <body>
         <ToastContainer position="top-center" />
         <Header />
