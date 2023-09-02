@@ -13,6 +13,7 @@ const Post = ({ post }: { post: InstagramPost }): JSX.Element => {
         loading="lazy"
         alt={post.alt || 'Instagram Post'}
         className="insta-post-banner"
+        style={{ objectFit: 'cover', }}
         fill={true}
       />
 
