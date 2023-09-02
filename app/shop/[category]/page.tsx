@@ -57,7 +57,7 @@ const ShopCategory: NextPage<Props> = async ({ params }) => {
           <div style={{ color: 'red', textAlign: 'center', display: 'flex', flexDirection: 'column', gap: '1.25rem', fontSize: '1.75rem' }}>
             <p><BiErrorCircle style={{ scale: 1.3, marginRight: '3px' }} /> No Products found for {category}!</p>
 
-            <p style={{ color: 'var(--primary)' }}>Check out <Link style={{ display: 'inline', color: 'var(--primary)', textDecoration: 'underline' }} href='/products'>All Products</Link>.</p> </div>}
+            <p style={{ color: 'var(--primary)' }}>Check out <Link style={{ display: 'inline', color: 'var(--primary)', textDecoration: 'underline' }} href='/shop'>All Products</Link>.</p> </div>}
       </div>
     </main>
   );
