@@ -876,6 +876,16 @@ body {
   border-radius: 0.75rem;
   overflow: hidden;
   min-width: 75%;
+  animation: backgroundAnimation 0.5s infinite alternate;
+}
+/* When the image hasn't loaded, this animation will be seen */
+@keyframes backgroundAnimation {
+  0% {
+    background-color: rgba(255, 66, 134, 0.3);
+  }
+  100% {
+    background-color: rgba(255, 66, 134, 1);
+  }
 }
 
 .insta-post-link {
