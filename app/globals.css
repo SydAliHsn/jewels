@@ -1908,7 +1908,11 @@ a.footer-link:is(:hover, :focus) {
   border-radius: 9px;
   text-align: center;
   display: flex;
+  transition: scale 0.2s ease-in-out;
   /* gap: 1rem; */
+}
+.product-details .buttons .btn:hover {
+  scale: 0.96;
 }
 .product-details .buttons .icon {
   font-size: 2.5rem;
