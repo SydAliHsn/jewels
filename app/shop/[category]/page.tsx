@@ -1,4 +1,6 @@
 import { NextPage } from 'next';
+import Link from 'next/link';
+import { BiErrorCircle } from 'react-icons/bi'
 
 import { getProducts, getCategories } from '@/lib/helpers';
 import FilterList from '@/components/FilterList';
@@ -42,7 +44,7 @@ const ShopCategory: NextPage<Props> = async ({ params }) => {
   return (
     <main
       className="shop"
-      //   style={{ backgroundImage: `url(/images/background-${bgColor}.svg)` }}
+    //   style={{ backgroundImage: `url(/images/background-${bgColor}.svg)` }}
     >
       <Preloader />
 
@@ -51,7 +53,11 @@ const ShopCategory: NextPage<Props> = async ({ params }) => {
 
         <FilterList filterOptions={getCategories(category)} />
 
-        <ProductList products={products} />
+        {products.length ? <ProductList products={products} /> :
+          <div style={{ color: 'red', textAlign: 'center', display: 'flex', flexDirection: 'column', gap: '1.25rem', fontSize: '1.75rem' }}>
+            <p><BiErrorCircle style={{ scale: 1.3, marginRight: '3px' }} /> No Products found for {category}!</p>
+
+            <p style={{ color: 'var(--primary)' }}>Check out <Link style={{ display: 'inline', color: 'var(--primary)', textDecoration: 'underline' }} href='/products'>All Products</Link>.</p> </div>}
       </div>
     </main>
   );
