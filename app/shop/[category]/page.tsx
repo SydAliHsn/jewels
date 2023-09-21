@@ -9,7 +9,7 @@ import ProductList from '@/components/ProductList';
 import { Product } from '@/lib/types';
 
 export const dynamicParams = false;
-export const revalidate = 360;
+export const revalidate = 2 * 3600;
 
 const categories = ['women', 'men', 'kids'];
 
