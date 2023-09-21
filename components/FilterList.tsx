@@ -23,7 +23,7 @@ const FilterList = ({ categories, subCategories }:
       </ul>
 
       {subCategories?.length ?
-        <ul style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginBottom: '2.5rem', marginTop: '-2rem' }}>
+        <ul style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginBottom: '2.5rem', flexWrap: 'wrap', marginTop: '-2rem' }}>
           {subCategories.map(({ href, active, title }) => (
             <li key={href}>
               <Link
