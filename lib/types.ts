@@ -10,6 +10,7 @@ export interface Product {
   bestseller?: boolean;
   description: string;
   category: string;
+  subCategory: string;
   images: {
     url: 'string';
     alt?: string;
@@ -22,6 +23,11 @@ export interface InstagramPost {
 }
 
 export interface Category {
+  title: string;
+  href: string;
+  active?: boolean;
+}
+export interface SubCategory {
   title: string;
   href: string;
   active?: boolean;

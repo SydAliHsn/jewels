@@ -1,4 +1,4 @@
-import { Product, Category } from '@/lib/types';
+import { Product, Category, SubCategory } from '@/lib/types';
 import { getAllInstagramPosts, getAllProducts } from './storyblok';
 
 // ////////////// /////// Fetch Products /////// ////////////// ////
@@ -6,6 +6,7 @@ import { getAllInstagramPosts, getAllProducts } from './storyblok';
 export const getProducts = async (options?: {
   page?: number;
   category?: string;
+  subCategory?: string;
   bestseller?: boolean;
   slug?: string;
   featured?: boolean;
@@ -20,7 +21,7 @@ export const getProducts = async (options?: {
     return products.find(({ slug }) => slug === options.slug);
   }
 
-  if (options.category) {
+  if (options.category && options.category !== 'all') {
     const category = options.category.toLowerCase();
 
     products = products.filter(prod => {
@@ -28,6 +29,12 @@ export const getProducts = async (options?: {
       // 2) Or if the product's category if "unisex", then add it as well, if the requested category is "men" or "women"
       return prod.category === category || (prod.category === 'unisex' && unisexSubCategories.includes(category));
     });
+  }
+
+  if (options.subCategory) {
+    const subCategory = options.subCategory.toLowerCase();
+
+    products = products.filter(prod => prod.subCategory === subCategory);
   }
 
   if (options.page) {
@@ -76,4 +83,16 @@ export const getCategories = (active: string): Category[] => {
       active: active === 'kids',
     },
   ];
+};
+
+export const getSubCategories = async (category: string, active?: string) => {
+  const products = (await getProducts({ category })) as Product[];
+
+  const subCategories = products.map(({ subCategory }) => ({
+    title: subCategory,
+    active: active === subCategory,
+    href: `/shop/${category}/${subCategory}`,
+  }));
+
+  return subCategories;
 };

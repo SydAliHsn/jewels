@@ -61,7 +61,7 @@ const ShopPage: NextPage<Props> = async ({ params }) => {
           </span>
         </h1>
 
-        <FilterList filterOptions={getCategories('all')} />
+        <FilterList categories={getCategories('all')} />
 
         <ProductList products={products} />
 

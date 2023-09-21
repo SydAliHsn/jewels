@@ -22,7 +22,7 @@ export async function getAllProducts() {
 
   const products: Product[] = productStories.map((story: any) => {
     const { id, slug, name: storyName, created_at, content } = story;
-    const { images, featured, bestseller, category, description, price, sale_price, name } = content;
+    const { images, featured, bestseller, category, subCategory, description, price, sale_price, name } = content;
 
     return {
       id,
@@ -34,6 +34,7 @@ export async function getAllProducts() {
       featured,
       bestseller,
       category,
+      subCategory,
       description,
       price: Number(price),
       salePrice: Number(sale_price),
