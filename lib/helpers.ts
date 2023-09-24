@@ -90,7 +90,7 @@ export const getSubCategories = async (category: string, active?: string) => {
 
   const subCategories = products.map(({ subCategory }) => ({
     title: subCategory,
-    active: active?.toLowerCase().trim() === subCategory.toLowerCase().trim(),
+    active: active === subCategory,
     href: `/shop/${category}/${subCategory}`,
   }));
 

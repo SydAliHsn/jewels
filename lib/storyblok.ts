@@ -34,7 +34,7 @@ export async function getAllProducts() {
       featured,
       bestseller,
       category,
-      subCategory,
+      subCategory: subCategory.trim().toLowerCase(),
       description,
       price: Number(price),
       salePrice: Number(sale_price),
