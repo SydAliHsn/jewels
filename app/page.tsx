@@ -31,13 +31,13 @@ export default async function Home() {
           {/* <!-- 
         - #PRODUCT
       --> */}
-          <section className="section product">
+          {bestsellerProducts.length && <section className="section product">
             <div className="container">
               <h2 className="h2 section-title">Our Bestsellers</h2>
 
               <ProductList products={bestsellerProducts} />
             </div>
-          </section>
+          </section>}
 
           <Cta />
 
