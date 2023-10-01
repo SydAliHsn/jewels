@@ -16,8 +16,11 @@ export const revalidate = 3600 * 2;
 
 export default async function Home() {
   const bestsellerProducts = (await getProducts({ bestseller: true })) as Product[];
-  const featuredProducts = (await getProducts({ featured: true })) as Product[];
+  let featuredProducts = (await getProducts({ featured: true })) as Product[];
+  const products = (await getProducts()) as Product[];
   const instagramPosts = (await getInstagramPosts()) as InstagramPost[];
+
+  if (!featuredProducts.length) featuredProducts = products.slice(0, 4);
 
   return (
     <div>
